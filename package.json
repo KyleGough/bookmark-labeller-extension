@@ -2,8 +2,9 @@
   "name": "extension",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "start": "parcel watch manifest.json --host localhost --config @parcel/config-webextension",
+    "build": "parcel build manifest.json --config @parcel/config-webextension",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ."
   },
@@ -12,15 +13,17 @@
     "url": "git+https://github.com/KyleGough/extension.git"
   },
   "author": "Kyle Gough",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/KyleGough/extension/issues"
   },
   "homepage": "https://github.com/KyleGough/extension#readme",
   "devDependencies": {
+    "@parcel/config-webextension": "^2.7.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "parcel": "^2.7.0",
     "prettier": "^2.7.1"
   }
 }

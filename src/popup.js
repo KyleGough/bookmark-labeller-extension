@@ -1,15 +1,3 @@
-const getActiveTabUrl = () => {
-  return browser.tabs
-    .query({ active: true, currentWindow: true })
-    .then((tabs) => tabs[0].url);
-};
-
-const searchBookmarks = (url) => {
-  return browser.bookmarks
-    .search({ url: url })
-    .then((bookmarks) => bookmarks[0]);
-};
-
 const markers = [
   '✅', // Green check
   '⭐', // Star
@@ -21,6 +9,18 @@ const markers = [
   '⚠️', // Warning
   '❌', // Cross
 ];
+
+const getActiveTabUrl = () => {
+  return browser.tabs
+    .query({ active: true, currentWindow: true })
+    .then((tabs) => tabs[0].url);
+};
+
+const searchBookmarks = (url) => {
+  return browser.bookmarks
+    .search({ url: url })
+    .then((bookmarks) => bookmarks[0]);
+};
 
 const createButtonNode = (key, emoji, disabled, selected) => {
   const btn = document.createElement('button');
