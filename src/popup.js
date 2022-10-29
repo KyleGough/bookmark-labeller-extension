@@ -60,12 +60,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   const storage = await browser.storage.local.get('emojis');
-  console.log(storage);
 
   // Create button elements for popup.
   for (let i = 0; i < storage.emojis.length; i++) {
     const emoji = storage.emojis[i];
-    console.log(emoji);
     const key = `btn_${i}`;
     const btn = createButtonNode(
       key,
