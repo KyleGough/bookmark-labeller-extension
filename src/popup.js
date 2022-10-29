@@ -1,27 +1,18 @@
-const markers = [
-  '✅', // Green check
-  '⭐', // Star
-  '👀', // Eyes
-  '💬', // Speech bubble
-  '❤️', // Red heart
-  '❓', // Question
-  '🕗', // Time
-  '⚠️', // Warning
-  '❌', // Cross
-];
-
+// Gets url of current active tab for current window
 const getActiveTabUrl = () => {
   return browser.tabs
     .query({ active: true, currentWindow: true })
     .then((tabs) => tabs[0].url);
 };
 
+// Gets bookmark given a url
 const searchBookmarks = (url) => {
   return browser.bookmarks
     .search({ url: url })
     .then((bookmarks) => bookmarks[0]);
 };
 
+// Creates custom button node
 const createButtonNode = (key, emoji, disabled, selected) => {
   const btn = document.createElement('button');
   const txt = document.createTextNode(emoji);
@@ -34,6 +25,7 @@ const createButtonNode = (key, emoji, disabled, selected) => {
   return btn;
 };
 
+// Prefix utility functions
 const addPrefix = (title, prefix) => [prefix, title].join(' ');
 const removePrefix = (title, prefix) => title.replace(prefix + ' ', '').trim();
 const hasPrefix = (title, prefix) => title.indexOf(prefix) > -1;
@@ -56,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       bookmark = await searchBookmarks(activeUrl);
     } catch (e) {
       console.warn(e);
+      return;
     }
     bookmark &&
       browser.bookmarks.update(bookmark.id, {
@@ -66,8 +59,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById(key).classList.toggle('selected');
   };
 
-  for (let i = 0; i < markers.length; i++) {
-    const emoji = markers[i];
+  const storage = await browser.storage.local.get('emojis');
+  console.log(storage);
+
+  // Create button elements for popup.
+  for (let i = 0; i < storage.emojis.length; i++) {
+    const emoji = storage.emojis[i];
+    console.log(emoji);
     const key = `btn_${i}`;
     const btn = createButtonNode(
       key,
