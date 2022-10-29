@@ -1,0 +1,30 @@
+html, body {
+  background-color: rgb(229, 231, 235);
+}
+
+#button-group {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#button-group > button {
+  border: 2px solid rgb(229, 231, 235);
+  padding: 4px;
+  height: 4rem;
+  width: 4rem;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+#button-group > button.selected {
+  border: 2px solid rgb(3, 176, 238);
+}
+
+#button-group > button.disabled {
+  cursor: not-allowed;
+  filter: brightness(0.9);
+}

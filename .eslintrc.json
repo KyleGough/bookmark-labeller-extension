@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "webextensions": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": 2
+  }
+}
