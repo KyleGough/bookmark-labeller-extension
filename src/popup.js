@@ -74,4 +74,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     bookmark && btn.addEventListener('click', () => updateBookmark(key, emoji));
     buttonGroup.appendChild(btn);
   }
+
+  // Edit button listener
+  document.getElementById('edit-button').addEventListener('click', () => {
+    browser.runtime.openOptionsPage();
+  });
 });

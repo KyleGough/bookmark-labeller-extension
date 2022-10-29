@@ -29,3 +29,19 @@ html, body {
   cursor: not-allowed;
   filter: brightness(0.9);
 }
+
+#edit-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#edit-button {
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(229, 231, 235);
+  background-color: rgb(3, 176, 238);
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+}

@@ -4,9 +4,9 @@ const defaultEmojis = [
   '👀', // Eyes
   '💬', // Speech bubble
   '❤️', // Red heart
-  '❓', // Question
+  '❓', // Question mark
   '🕗', // Time
-  '⚠️', // Warning
+  '🚩', // Red flag
   '❌', // Cross
 ];
 
