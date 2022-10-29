@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "Extension",
+  "name": "Bookmark Labeller",
   "version": "1.0.0",
   "description": "",
   "browser_action": {
-    "default_title": "Extension",
+    "default_title": "Bookmark Labeller",
     "default_popup": "src/index.html"
   },
   "background": {

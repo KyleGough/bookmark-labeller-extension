@@ -1,5 +1,5 @@
 {
-  "name": "extension",
+  "name": "bookmark-labeller",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KyleGough/extension.git"
+    "url": "git+https://github.com/KyleGough/bookmark-labeller-extension.git"
   },
   "author": "Kyle Gough",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KyleGough/extension/issues"
+    "url": "https://github.com/KyleGough/bookmark-labeller-extension/issues"
   },
-  "homepage": "https://github.com/KyleGough/extension#readme",
+  "homepage": "https://github.com/KyleGough/bookmark-labeller-extension#readme",
   "devDependencies": {
     "@parcel/config-webextension": "^2.7.0",
     "eslint": "^8.26.0",
