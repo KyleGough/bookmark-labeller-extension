@@ -1,5 +1,5 @@
 # Bookmark Labeller
-**Bookmark Labeller** is a Firefox add-on which labels bookmarks with emojis. Choose from a set of 9 pre-defined emojis, or customise and choose your own favourite emojis.
+Label bookmarks with your favourite emojis
 
 ## Development
 Prerequisite: `web-ext`
