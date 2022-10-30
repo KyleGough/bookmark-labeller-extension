@@ -1,9 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Bookmark Labeller",
+  "autor": "Kyle Gough",
   "version": "1.0.0",
-  "description": "",
+  "description": "Label bookmarks with emojis",
   "browser_action": {
+    "default_icon": "src/icon.svg",
     "default_title": "Bookmark Labeller",
     "default_popup": "src/index.html"
   },
