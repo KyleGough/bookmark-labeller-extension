@@ -1,15 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   background-color: rgb(229, 231, 235);
 }
 
-#button-group {
+#input-group {
+  display: none;
+}
+
+.group {
   width: 100%;
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(3, 1fr);
 }
 
-#button-group > button {
+#button-group > button,
+#input-group > input[type=text] {
   border: 2px solid rgb(229, 231, 235);
   padding: 4px;
   height: 4rem;
@@ -17,8 +26,12 @@ html, body {
   background-color: white;
   border-radius: 5px;
   font-size: 2.5rem;
+  outline: none;
   cursor: pointer;
   transition: border 0.2s ease-in-out;
+  text-align: center;
+  font-weight: 600;
+  overflow: hidden;
 }
 
 #button-group > button.selected {
@@ -38,10 +51,45 @@ html, body {
 }
 
 #edit-button {
+  background-color: rgb(3, 176, 238);
+  transition: background-color 0.2s ease-in-out;
+}
+
+#edit-button:hover,
+#edit-button:focus {
+  background-color: rgb(3, 158, 214);
+}
+
+#save-button {
+  background-color: rgb(76, 175, 80);
+  transition: background-color 0.2s ease-in-out;
+}
+
+#save-button:hover,
+#save-button:focus {
+  background-color: rgb(68, 157, 72);
+}
+
+#edit-wrapper > button {
   padding: 0.5rem 1rem;
   border: 2px solid rgb(229, 231, 235);
-  background-color: rgb(3, 176, 238);
   cursor: pointer;
   color: white;
   border-radius: 5px;
+  width: 6rem;
+}
+
+.link-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: rgb(170, 170, 170);
+  font-size: 0.75rem;
+}
+
+.link:hover,
+.link:focus {
+  color: rgb(136, 136, 136);
 }
