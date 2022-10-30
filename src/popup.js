@@ -78,7 +78,7 @@ const updateButtonGroup = async () => {
 // Prefix utility functions
 const addPrefix = (title, prefix) => [prefix, title].join(' ');
 const removePrefix = (title, prefix) => title.replace(prefix + ' ', '').trim();
-const hasPrefix = (title, prefix) => title.indexOf(prefix) > -1;
+const hasPrefix = (title, prefix) => title.indexOf(prefix + ' ') > -1;
 
 document.addEventListener('DOMContentLoaded', async () => {
   await updateButtonGroup();

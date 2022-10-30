@@ -13,50 +13,46 @@ const defaultEmojis = [
 // Prefix utility functions
 const addPrefix = (title, prefix) => [prefix, title].join(' ');
 const removePrefix = (title, prefix) => title.replace(prefix + ' ', '').trim();
-const hasPrefix = (title, prefix) => title.indexOf(prefix) > -1;
-
-// Get title of bookmark given bookmark id
-const getBookmarkTitle = (id) => {
-  return browser.bookmarks.get(id).then((bookmark) => bookmark[0].title);
-};
+const hasPrefix = (title, prefix) => title.indexOf(prefix + ' ') > -1;
 
 // Updates bookmark title with toggled prefix
-const togglePrefix = async (bookmark, emoji) => {
-  const title = await getBookmarkTitle(bookmark.bookmarkId);
-  browser.bookmarks.update(bookmark.bookmarkId, {
-    title: hasPrefix(title, emoji)
-      ? removePrefix(title, emoji)
-      : addPrefix(title, emoji),
+const togglePrefix = (id, emoji) => {
+  // Get title of bookmark given bookmark id
+  chrome.bookmarks.get(id, (bookmark) => {
+    const title = bookmark[0].title;
+    chrome.bookmarks.update(bookmark.bookmarkId, {
+      title: hasPrefix(title, emoji)
+        ? removePrefix(title, emoji)
+        : addPrefix(title, emoji),
+    });
   });
 };
 
 // Updates context menu items when local storage changes
-browser.storage.local.onChanged.addListener(async () => {
-  await browser.menus.removeAll();
-
-  const storage = await browser.storage.local.get('emojis');
-  const emojis = storage.emojis;
-
-  for (let i = 0; i < emojis.length; i++) {
-    const emoji = emojis[i];
-    browser.menus.create({
-      id: `prefix-bookmark-${i}`,
-      title: emoji,
-      contexts: ['bookmark'],
-      onclick: (bookmark) => togglePrefix(bookmark, emoji),
+chrome.storage.local.onChanged.addListener(() => {
+  chrome.contextMenus.removeAll(() => {
+    chrome.storage.local.get('emojis', (storage) => {
+      const emojis = storage.emojis;
+      for (let i = 0; i < emojis.length; i++) {
+        const emoji = emojis[i];
+        chrome.contextMenus.create({
+          id: `prefix-bookmark-${i}`,
+          title: emoji,
+          contexts: ['bookmark'],
+          onclick: (bookmark) => togglePrefix(bookmark.bookmarkId, emoji),
+        });
+      }
     });
-  }
+  });
 });
 
-// Initialize default emojis
-browser.runtime.onInstalled.addListener(async () => {
-  const storage = await browser.storage.local.get('initialized');
-
-  // If already initialised do not reset defaults.
-  if (storage.initialized) return;
-
-  browser.storage.local.set({
-    emojis: defaultEmojis,
-    initialized: true,
+// Initialize default emojis if not already set
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.local.get('initialised', (storage) => {
+    if (storage && storage.initialized) return;
+    chrome.storage.local.set({
+      emojis: defaultEmojis,
+      initialized: true,
+    });
   });
 });
