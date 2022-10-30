@@ -13,7 +13,6 @@
     "scripts": ["src/background.js"]
   },
   "permissions": [
-    "<all_urls>",
     "bookmarks",
     "menus",
     "storage",
