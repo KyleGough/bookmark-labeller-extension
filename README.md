@@ -1,30 +1,27 @@
 # Bookmark Labeller
-Bookmark Labeller is a lightweight and minimalistic Firefox browser extension that allows you to label bookmarks with your favourite emojis. The extension comes with 9 default emojis which can be customised. Use the action button to select emojis or right-click bookmarks to add emojis with the context menu.
-
-<div align="center">
-  <img src="https://user-images.githubusercontent.com/24881448/198891524-3ccf0aef-33a3-4dc8-b3f1-a8a73562a5d1.jpg" alt="Extension Popup" />
-</div>
+Bookmark Labeller is a lightweight and minimalistic Firefox browser extension that allows you to label bookmarks with your favourite emojis. The extension comes with default emojis which can be customised and interchanged. Use the action button to select emojis or right-click bookmarks to add emojis with the context menu.
 
 ## Table of Contents
 - [Development](#development)
 - [Build](#build)
 - [Screenshots](#screenshots)
 
+![Extension Popup](https://user-images.githubusercontent.com/24881448/198891524-3ccf0aef-33a3-4dc8-b3f1-a8a73562a5d1.jpg)
 
 ## Development
-Install dependencies and run the development server with Parcel
+First, install all the dev dependencies and then use the `start` command to prompt [Parcel](https://parceljs.org/) to start the development server. The development server watches for file changes and updates the `dist` directory.
 ```sh
 npm install
 npm start # --> parcel watch manifest.json --host localhost --config @parcel/config-webextension
 ```
 
-In another terminal, run
+In another terminal, use [web-ext](https://github.com/mozilla/web-ext) to load the extension temporarily in the browser. Any file changes will be picked up and will reload the extension automatically.
 ```sh
 web-ext run
 ```
 
 ## Build
-Builds the extension to the `dist` directory, then packages into a `.zip` file
+To build the project and make it ready for production, we use [Parcel](https://parceljs.org/), a build tool requiring minimal configuration. First run the `build` command to output the bundled and minified code, and then use the [web-ext](https://github.com/mozilla/web-ext) tool to build and package the `dist` directory into a distributable `.zip` file.
 ```sh
 npm run build # --> parcel build manifest.json --config @parcel/config-webextension
 web-ext build -s dist
