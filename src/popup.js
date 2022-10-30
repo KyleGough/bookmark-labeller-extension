@@ -15,7 +15,10 @@ const searchBookmarks = (url) => {
 // Returns an updated button element
 const updateButtonNode = (key, emoji, disabled, selected) => {
   const btn = document.getElementById(key);
-  btn.innerHTML = emoji;
+  while (btn.hasChildNodes()) {
+    btn.childNodes[0].remove();
+  }
+  btn.appendChild(document.createTextNode(emoji));
   let className = [];
   if (disabled) className += 'disabled';
   if (selected) className += 'selected';
