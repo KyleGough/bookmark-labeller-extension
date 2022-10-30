@@ -30,7 +30,6 @@ web-ext build -s dist
 ## Screenshots
 
 ![popup-custom](https://user-images.githubusercontent.com/24881448/198887894-02b00015-c09b-447f-b13a-0f26873101e4.png)
-![popup-default](https://user-images.githubusercontent.com/24881448/198887895-47654d9a-1995-4c7a-9374-8ebe84715de0.png)
 ![popup-selected](https://user-images.githubusercontent.com/24881448/198887897-e4226be8-38f1-46dd-98d5-de232d9d5bcb.png)
 ![bookmark-folder](https://user-images.githubusercontent.com/24881448/198887101-0bbafa1d-650a-4fd8-b242-1cd8335bedc6.png)
 ![context-menu](https://user-images.githubusercontent.com/24881448/198887271-7e03ec9d-2373-409a-8439-a5c179a109e3.png)
