@@ -4,10 +4,16 @@
 ## Development
 Prerequisite: `web-ext`
 
+Install dependencies
+```sh
+npm install
+```
+
 Using Parcel with HMR to start the development server
 ```sh
 npm start
 ```
+
 In another terminal, run
 ```sh
 web-ext run
@@ -19,6 +25,7 @@ Builds the extension to the `dist` directory
 npm run build
 ```
 
+Packages the extension into a `.zip` file
 ```sh
-web-ext build dist
+web-ext build -s dist
 ```
