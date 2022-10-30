@@ -2,8 +2,7 @@
 Label bookmarks with your favourite emojis. The add-on comes with 9 default emojis which can be customised. Use the add-on action button to select emojis or right-click bookmarks to add emojis with the context menu.
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/24881448/198887652-6c0f0db6-e5d9-47b3-852b-549f18606e50.png" alt="Popup" />
-  <img src="https://user-images.githubusercontent.com/24881448/198887101-0bbafa1d-650a-4fd8-b242-1cd8335bedc6.png" alt="Labelled bookmark folder" />
+  <img src="https://user-images.githubusercontent.com/24881448/198891524-3ccf0aef-33a3-4dc8-b3f1-a8a73562a5d1.jpg" alt="Extension Popup" />
 </div>
 
 ## Table of Contents
