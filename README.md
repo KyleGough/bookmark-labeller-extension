@@ -16,7 +16,7 @@ Label bookmarks with your favourite emojis. The add-on comes with 9 default emoj
 Install dependencies and run the development server with Parcel
 ```sh
 npm install
-npm start
+npm start # --> parcel watch manifest.json --host localhost --config @parcel/config-webextension
 ```
 
 In another terminal, run
@@ -27,13 +27,8 @@ web-ext run
 ## Build
 Builds the extension to the `dist` directory, then packages into a `.zip` file
 ```sh
-npm run build
+npm run build # --> parcel build manifest.json --config @parcel/config-webextension
 web-ext build -s dist
-```
-
-### Packaging Source Code
-```sh
-zip -r bookmark-labeller-extension-source.zip . -x "dist/*" "node_modules/*" ".git/*" ".parcel-cache/*"
 ```
 
 ## Screenshots
