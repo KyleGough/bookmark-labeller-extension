@@ -27,3 +27,8 @@ Packages the extension into a `.zip` file
 ```sh
 web-ext build -s dist
 ```
+
+## Packaging Source Code
+```sh
+zip -r bookmark-labeller-extension-source.zip . -x "dist/*" "node_modules/*" ".git/*" ".parcel-cache/*"
+```
