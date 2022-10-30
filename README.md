@@ -2,8 +2,6 @@
 Label bookmarks with your favourite emojis
 
 ## Development
-Prerequisite: `web-ext`
-
 Install dependencies
 ```sh
 npm install
