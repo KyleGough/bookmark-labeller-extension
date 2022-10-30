@@ -1,5 +1,5 @@
 # Bookmark Labeller
-Label bookmarks with your favourite emojis. The add-on comes with 9 default emojis which can be customised. Use the add-on action button to select emojis or right-click bookmarks to add emojis with the context menu.
+Bookmark Labeller is a lightweight and minimalistic Firefox browser extension that allows you to label bookmarks with your favourite emojis. The extension comes with 9 default emojis which can be customised. Use the action button to select emojis or right-click bookmarks to add emojis with the context menu.
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/24881448/198891524-3ccf0aef-33a3-4dc8-b3f1-a8a73562a5d1.jpg" alt="Extension Popup" />
