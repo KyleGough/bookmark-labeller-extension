@@ -1,6 +1,6 @@
 {
   "name": "bookmark-labeller",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Label bookmarks with your favourite emojis. The add-on comes with 9 default emojis which can be customised. Use the add-on action button to select emojis or right-click bookmarks to add emojis with the context menu.",
   "scripts": {
     "start": "parcel watch manifest.json --host localhost --config @parcel/config-webextension",
