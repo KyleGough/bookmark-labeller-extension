@@ -1,13 +1,13 @@
 const defaultEmojis = [
   '✅', // Green check
-  '⭐', // Star
+  '🔥', // Fire
   '👀', // Eyes
-  '💬', // Speech bubble
-  '❤️', // Red heart
-  '❓', // Question mark
-  '🕗', // Time
-  '🚩', // Red flag
-  '❌', // Cross
+  '👍', // Thumbs up
+  '👎', // Thumbs down
+  '❤️', // Heart
+  '😀', // Smile
+  '😍', // Heart eyes
+  '😂', // Tears of joy
 ];
 
 // Prefix utility functions
@@ -20,7 +20,7 @@ const togglePrefix = (id, emoji) => {
   // Get title of bookmark given bookmark id
   chrome.bookmarks.get(id, (bookmark) => {
     const title = bookmark[0].title;
-    chrome.bookmarks.update(bookmark.bookmarkId, {
+    chrome.bookmarks.update(id, {
       title: hasPrefix(title, emoji)
         ? removePrefix(title, emoji)
         : addPrefix(title, emoji),
