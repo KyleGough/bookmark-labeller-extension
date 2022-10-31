@@ -1,12 +1,23 @@
 # Bookmark Labeller
+<div>
+  <img src="https://img.shields.io/amo/v/%7B1cbc84ca-1f1b-46b2-bbe2-0bad029eb636%7D?style=flat-square" />
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/bookmark-labeller/">
+    <img src="https://img.shields.io/badge/-Install-red?style=flat-square" />
+  </a>
+</div>
+
 Bookmark Labeller is a lightweight and minimalistic Firefox browser extension that allows you to label bookmarks with your favourite emojis. The extension comes with default emojis which can be customised and interchanged. Use the action button to select emojis or right-click bookmarks to add emojis with the context menu.
 
 ## Table of Contents
+- [Install](#install)
 - [Development](#development)
 - [Build](#build)
 - [Screenshots](#screenshots)
 
 ![Extension Popup](https://user-images.githubusercontent.com/24881448/198891524-3ccf0aef-33a3-4dc8-b3f1-a8a73562a5d1.jpg)
+
+## Install
+<a href="https://addons.mozilla.org/en-US/firefox/addon/bookmark-labeller/">Download and install from the Mozilla add-on marketplace</a>
 
 ## Development
 First, install all the dev dependencies and then use the `start` command to prompt [Parcel](https://parceljs.org/) to start the development server. The development server watches for file changes and updates the `dist` directory.
