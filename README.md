@@ -8,6 +8,7 @@ Bookmark Labeller is a lightweight and minimalistic Firefox browser extension th
 
 ## Table of Contents
 - [Install](#install)
+- [Permissions](#permissions)
 - [Development](#development)
 - [Build](#build)
 - [Screenshots](#screenshots)
@@ -18,6 +19,12 @@ Bookmark Labeller is a lightweight and minimalistic Firefox browser extension th
 <a href="https://addons.mozilla.org/en-US/firefox/addon/bookmark-labeller/">
   <img src="https://img.shields.io/badge/-Install%20Add--On-blue?style=for-the-badge&logo=firefox" alt="Install Badge" />
 </a>
+
+## Permissions
+- **bookmarks** - query and edit the title of bookmarks.
+- **contextMenus** - toggle labels for bookmarks via the right click context menu.
+- **storage** - persist user set emojis.
+- **tabs** - query active tab to link corresponding bookmark.
 
 ## Development
 Clone the repository, install all the dev dependencies and then use the `start` command to prompt [Parcel](https://parceljs.org/) to start the development server. The development server watches for file changes and updates the `dist` directory.
