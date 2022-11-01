@@ -8,6 +8,7 @@ Bookmark Labeller is a lightweight and minimalistic Firefox browser extension th
 
 ## Table of Contents
 - [Install](#install)
+- [Usage](#usage)
 - [Permissions](#permissions)
 - [Development](#development)
 - [Build](#build)
@@ -19,6 +20,24 @@ Bookmark Labeller is a lightweight and minimalistic Firefox browser extension th
 <a href="https://addons.mozilla.org/en-US/firefox/addon/bookmark-labeller/">
   <img src="https://img.shields.io/badge/-Install%20Add--On-blue?style=for-the-badge&logo=firefox" alt="Install Badge" />
 </a>
+
+## Usage
+**Toggle emoji label for the current active URL**
+> Note: This option is only available if the current active tab is bookmarked, otherwise the option to toggle emojis is disabled.
+1. Open the popup by clicking the extension icon.
+2. Click on an emoji to add it as a label to the currently active bookmark.
+
+**Customising your favourite emojis**
+1. Open the popup by clicking the extension icon.
+2. Switching to 'Edit' mode by clicking the 'Edit' button in the popup.
+3. Click on an emoji to enter the text input.
+4. Paste/type your desired emoji.
+5. Click on the 'Save' button to save your changes, this will persist your favourites across sessions, and windows.
+
+**Toggle emoji label for any bookmark**
+1. Right click any bookmark in the bookmarks bar to bring up the context menu.
+2. Find the option titled 'Bookmark Labeller'.
+3. Select from the different emojis to toggle the emoji for the selected bookmark.
 
 ## Permissions
 - **bookmarks** - query and edit the title of bookmarks.
