@@ -1,9 +1,17 @@
 * {
+  --color-bg: rgb(229, 231, 235);
+  --color-primary: rgb(3, 176, 238);
+  --color-primaryDark: rgb(3, 158, 214);
+  --color-secondary: rgb(76, 175, 80);
+  --color-secondaryDark: rgb(68, 157, 72);
+  --color-link: rgb(170, 170, 170);
+  --color-linkDark: rgb(136, 136, 136);
   box-sizing: border-box;
 }
 
 html, body {
-  background-color: rgb(229, 231, 235);
+  background-color: var(--color-bg);
+  width: fit-content;
 }
 
 #input-group {
@@ -19,11 +27,10 @@ html, body {
 
 #button-group > button,
 #input-group > input[type=text] {
-  border: 2px solid rgb(229, 231, 235);
-  padding: 4px;
+  border: 2px solid var(--color-bg);
+  padding: 3px;
   height: 4rem;
   width: 4rem;
-  min-width: 4rem;
   background-color: white;
   border-radius: 5px;
   font-size: 2.5rem;
@@ -36,7 +43,7 @@ html, body {
 }
 
 #button-group > button.selected {
-  border: 2px solid rgb(3, 176, 238);
+  border: 2px solid var(--color-primary);
 }
 
 #button-group > button.disabled {
@@ -52,28 +59,28 @@ html, body {
 }
 
 #edit-button {
-  background-color: rgb(3, 176, 238);
+  background-color: var(--color-primary);
   transition: background-color 0.2s ease-in-out;
 }
 
 #edit-button:hover,
 #edit-button:focus {
-  background-color: rgb(3, 158, 214);
+  background-color: var(--color-primaryDark);
 }
 
 #save-button {
-  background-color: rgb(76, 175, 80);
+  background-color: var(--color-secondary);
   transition: background-color 0.2s ease-in-out;
 }
 
 #save-button:hover,
 #save-button:focus {
-  background-color: rgb(68, 157, 72);
+  background-color: var(--color-secondaryDark);
 }
 
 #edit-wrapper > button {
   padding: 0.5rem 1rem;
-  border: 2px solid rgb(229, 231, 235);
+  border: 2px solid var(--color-bg);
   cursor: pointer;
   color: white;
   border-radius: 5px;
@@ -86,11 +93,11 @@ html, body {
 }
 
 .link {
-  color: rgb(170, 170, 170);
+  color: var(--color-link);
   font-size: 0.75rem;
 }
 
 .link:hover,
 .link:focus {
-  color: rgb(136, 136, 136);
+  color: var(--color-linkDark);
 }
