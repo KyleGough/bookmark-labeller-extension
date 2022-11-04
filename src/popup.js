@@ -1,12 +1,28 @@
-// Get the bookmark object of the currently active tab
-const getActiveTabBookmark = (callback) => {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    if (!tabs || !tabs.length) return callback(false);
-    const url = tabs[0].url;
-    chrome.bookmarks.search({ url: url }, (bookmarks) => {
-      if (!bookmarks || !bookmarks.length) return callback(false);
-      callback(bookmarks[0]);
+// Gets the active tab url
+const getActiveTab = () => {
+  return new Promise((resolve, reject) => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (!tabs || !tabs.length) {
+        reject('Rejected');
+      }
+      resolve(tabs[0].url);
     });
+  });
+};
+
+// Gets the corresponding bookmark object for the provided url
+const getBookmark = (url) => {
+  return new Promise((resolve, reject) => {
+    try {
+      chrome.bookmarks.search({ url: url }, (bookmarks) => {
+        if (!bookmarks || !bookmarks.length) {
+          reject('No bookmark found');
+        }
+        resolve(bookmarks[0]);
+      });
+    } catch (e) {
+      reject(e);
+    }
   });
 };
 
@@ -44,27 +60,60 @@ const removePrefix = (title, prefix) => title.replace(prefix + ' ', '').trim();
 const hasPrefix = (title, prefix) => title.indexOf(prefix + ' ') > -1;
 
 // Toggles the active tab's bookmark with the selected emoji
-const updateBookmark = (event) => {
+const updateBookmark = async (event) => {
   const emoji = event.target.innerHTML;
+  let url;
+  let bookmark;
 
-  getActiveTabBookmark((bookmark) => {
-    if (!bookmark) return;
-    chrome.bookmarks.update(
-      bookmark.id,
-      {
-        title: hasPrefix(bookmark.title, emoji)
-          ? removePrefix(bookmark.title, emoji)
-          : addPrefix(bookmark.title, emoji),
-      },
-      (bookmark) =>
-        updateButtonSelected(emoji, hasPrefix(bookmark.title, emoji))
-    );
-  });
+  try {
+    url = await getActiveTab();
+    bookmark = await getBookmark(url);
+  } catch (e) {
+    bookmark = false;
+  }
+
+  if (!bookmark) return;
+  chrome.bookmarks.update(
+    bookmark.id,
+    {
+      title: hasPrefix(bookmark.title, emoji)
+        ? removePrefix(bookmark.title, emoji)
+        : addPrefix(bookmark.title, emoji),
+    },
+    (bookmark) => updateButtonSelected(emoji, hasPrefix(bookmark.title, emoji))
+  );
 };
 
 // Update buttons to reflect storage and current bookmark
-const updateButtonGroup = () => {
-  getActiveTabBookmark((bookmark) => {
+const updateButtonGroup = async () => {
+  let url;
+  let bookmark;
+
+  try {
+    url = await getActiveTab();
+    bookmark = await getBookmark(url);
+  } catch (e) {
+    bookmark = false;
+  }
+
+  chrome.storage.local.get('emojis', (storage) => {
+    const emojis = storage.emojis;
+    // Create button elements for popup.
+    for (let i = 0; i < emojis.length; i++) {
+      const emoji = emojis[i];
+      const key = `btn-${i}`;
+      const btn = updateButtonNode(
+        key,
+        emoji,
+        !bookmark,
+        bookmark && hasPrefix(bookmark.title, emoji)
+      );
+      btn.addEventListener('click', updateBookmark);
+    }
+    switchMode('NORMAL');
+  });
+
+  /*getActiveTabBookmark((bookmark) => {
     chrome.storage.local.get('emojis', (storage) => {
       const emojis = storage.emojis;
       // Create button elements for popup.
@@ -81,7 +130,7 @@ const updateButtonGroup = () => {
       }
       switchMode('NORMAL');
     });
-  });
+  });*/
 };
 
 // Switches mode visually to and from NORMAL and EDIT mode
