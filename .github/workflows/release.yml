@@ -1,0 +1,46 @@
+name: Create Tag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: butlerlogic/action-autotag@stable
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      with:
+        strategy: regex
+        root: "manifest.json"
+        regex_pattern: "\"version\": \"([0-9]+.[0-9]+.[0-9]+)\""
+        tag_prefix: "v"
+
+    - name: Fetch Tags 
+      run: git fetch --tags -f
+
+    - name: Resolve Version
+      id: vars
+      run: |
+        echo "TAG_NAME=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+
+    - name: Install
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Package Extension
+      run: npx web-ext build -s dist
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ env.TAG_NAME }}
+        files: |
+          web-ext-artifacts/bookmark_labeller-*
+      
+
