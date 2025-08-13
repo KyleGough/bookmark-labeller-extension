@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/KyleGough/bookmark-labeller-extension#readme",
   "devDependencies": {
-    "@parcel/config-webextension": "^2.7.0",
+    "@parcel/config-webextension": "^2.15.4",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
